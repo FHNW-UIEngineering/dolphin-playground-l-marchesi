@@ -33,6 +33,7 @@ class PersonController extends Controller implements BasePmMixin {
 
     @Override
     public void registerCommands(ActionRegistry registry) {
+        //                               Konstante!                   Methode --> diese Klasse
         registry.register(PersonCommands.LOAD_SOME_PERSON, ($, $$) -> loadPerson());
         registry.register(PersonCommands.SAVE            , ($, $$) -> save());
         registry.register(PersonCommands.RESET           , ($, $$) -> reset(PMDescription.PERSON));
