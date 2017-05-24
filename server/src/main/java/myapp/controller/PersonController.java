@@ -52,6 +52,10 @@ class PersonController extends Controller implements BasePmMixin {
 
     @Override
     protected void setupValueChangedListener() {
+        personProxy.age.valueProperty().addListener((observable, oldValue, newValue) -> {
+            personProxy.isAdult.setValue(newValue.intValue() >= 18);
+        });
+
         getApplicationState().language.valueProperty().addListener((observable, oldValue, newValue) -> translate(personProxy, newValue));
     }
 
