@@ -42,7 +42,7 @@ class PersonController extends Controller implements BasePmMixin {
     @Override
     protected void initializeBasePMs() {
         ServerPresentationModel pm = createProxyPM(PMDescription.PERSON, PERSON_PROXY_PM_ID);
-
+        // hier irgendwas mit Furnier
         personProxy = new Person(pm);
     }
 
@@ -61,8 +61,8 @@ class PersonController extends Controller implements BasePmMixin {
     }
 
     ServerPresentationModel loadPerson() {
-        DTO dto = service.loadSomeEntity();
-        ServerPresentationModel pm = createPM(PMDescription.PERSON, dto);
+        DTO dto = service.loadSomeEntity();     // liefert Uniforme Instanz von Person zurück
+        ServerPresentationModel pm = createPM(PMDescription.PERSON, dto); // Zuerst Beschreibung (Konstante), dann DTO
 
         personProxy.getPresentationModel().syncWith(pm);
 

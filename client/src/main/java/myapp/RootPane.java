@@ -177,10 +177,10 @@ class RootPane extends GridPane implements ViewMixin, BasePmMixin {
         ClientPresentationModel personProxyPM = clientDolphin.getAt(BasePmMixin.PERSON_PROXY_PM_ID);
 
         //JFXBinder is ui toolkit agnostic. We have to use Strings
-        JFXBinder.bind(PersonAtt.NAME.name())
+        JFXBinder.bind(PersonAtt.NAME.name())   // Attribut "Name" wird an Textproperty vom HeadLabel gebunden
                  .of(personProxyPM)
                  .using(value -> value + ", " + personProxyPM.getAt(PersonAtt.AGE.name()).getValue())
-                 .to("text")
+                 .to("text") // bindet an Textproperty vom headLabel
                  .of(headerLabel);
 
         JFXBinder.bind(PersonAtt.AGE.name())
@@ -192,7 +192,7 @@ class RootPane extends GridPane implements ViewMixin, BasePmMixin {
         JFXBinder.bind(PersonAtt.NAME.name(), Tag.LABEL).of(personProxyPM).to("text").of(nameLabel);
         JFXBinder.bind(PersonAtt.NAME.name()).of(personProxyPM).to("text").of(nameField);
         JFXBinder.bind("text").of(nameField).to(PersonAtt.NAME.name()).of(personProxyPM);
-
+        // Man kann bei einem Attribut nicht nur den Namen, sondern auch das Label setzen
         JFXBinder.bind(PersonAtt.AGE.name(), Tag.LABEL).of(personProxyPM).to("text").of(ageLabel);
         JFXBinder.bind(PersonAtt.AGE.name()).of(personProxyPM).to("text").of(ageField);
         Converter toIntConverter = value -> {

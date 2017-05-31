@@ -7,6 +7,9 @@ import myapp.util.ValueType;
 /**
  * todo: Describe all your application specific PresentationModel-Attributes like this
  */
+// enum  definiert eine Menge von einer Konstante
+// Hauptgrund für enums: Values Methode --> alle Attribute können als Array zurückgegeben werden
+
 public enum PersonAtt implements AttributeDescription {
     ID(ValueType.ID),
     NAME(ValueType.STRING),
